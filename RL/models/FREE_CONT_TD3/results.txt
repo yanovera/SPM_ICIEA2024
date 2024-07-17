@@ -1,0 +1,54 @@
+default_target_mode = SearchMethod.FREE
+default_actions_type = ActionsSpace.CONTINUOUS
+
+############Maximum operator steps limit###################
+default_max_steps = 400  # actions operator steps limit
+
+############Rewards##################
+default_reward_step_factor = 30  # Multiplies the difference in angle to the target vector, resulting a positive reward when the difference is decreased
+default_reward_step_singA = 10  # Multiplies the difference in singA, resulting a positive reward when the singA is increased
+default_reward_success = 50  # Signals the RL trainer that the agent has reached the target vector within the 'ang_threshold'
+default_reward_singularity = -70  # Signals the RL trainer that the agent has reached singularity
+default_reward_extra_step = -0.2  # minus for extra step
+
+############Environment############
+default_sing_threshold = 0.05  # Singularity threshold. Threshold decreases -> LOS cone angle increase, control decreases
+default_ang_threshold = 0.2  # Sets the precision of the destination [deg]
+default_tetadotv0 = [100, 200, 400]  # Sets the size of a single operator step (deg/sec)
+default_rolling_speed = 800  # (deg/sec)
+default_action_noise_sigma = 0.0  # sigma for noise normal distribution
+
+############Resetting Angles top platform euler angles Boundings############
+# Maximum and minimum values that will shuffle while Resetting the source vector
+default_init_look_v_min = 0  # [deg].
+default_init_look_v_max = 40  # [deg].
+
+# Maximum and minimum values that will shuffle while Resetting the destination vectors
+default_goal_look_v_min = 0  # [deg].
+default_goal_look_v_max = 40  # [deg].
+
+==============================================================================
+default_ang_threshold = 0.2  # Sets the precision of the destination [deg]
+
+Success percentage: 99.49 %
+Average steps to success: 18.20564880892552
+Std. of steps to success 17.91526173207162
+Maximum steps to success: 359
+Number of |success: 9949 | Out of steps: 43 | Singularity point: 8 |
+Trained Model Mean reward: 54.451744803241546 Num episodes: 10000
+Minimum Sing A: 0.007965672242226314
+Minimum Sing B: 0.4356165992306731
+Average prediction time: 0.0006257384071711793
+
+==============================================================================
+default_ang_threshold = 1.0  # Sets the precision of the destination [deg]
+
+Success percentage: 99.9 %
+Average steps to success: 15.643043043043043
+Std. of steps to success 16.12518312081537
+Maximum steps to success: 374
+Number of |success: 9990 | Out of steps: 6 | Singularity point: 4 |
+Trained Model Mean reward: 55.06824003202189 Num episodes: 10000
+Minimum Sing A: 0.03284050450624046
+Minimum Sing B: 0.43996247993239834
+Average prediction time: 0.0006985287153801072

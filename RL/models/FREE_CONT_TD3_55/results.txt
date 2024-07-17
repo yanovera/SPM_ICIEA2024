@@ -1,0 +1,59 @@
+default_target_mode = SearchMethod.FREE
+default_actions_type = ActionsSpace.CONTINUOUS
+default_classic_control = False
+default_classic_control_K = 1
+default_enable_azimuth_control = False  # use only for evaluation
+default_use_grid = True  # if true, grid is used for filtering unreachable sources & destinations
+default_roll_and_pitch_grid_file = 'grids/euler_grid_1.pkl'  # applicable when target_mode != JOINTS_ELEVATION
+default_joints_elevation_grid_file = 'grids/joints_grid_1.pkl'  # applicable when target_mode == JOINTS_ELEVATION
+default_goal_selection_mode = GoalSelectionMethod.BY_PROXIMITY  # applicable for JOINTS_ELEVATION and ROLL_AND_PITCH target modes
+
+
+############Maximum operator steps limit###################
+default_max_steps = 400  # actions operator steps limit
+
+############Rewards##################
+default_reward_step_dist_factor = 30  # Multiplies the angular difference from target, resulting a positive reward when the difference is decreased
+default_reward_step_singA = 10  # Multiplies the difference in singA, resulting a positive reward when the singA is increased
+default_reward_success = 50  # Signals the RL trainer that the agent has reached the target vector within the 'ang_threshold'
+default_reward_singularity = -70  # Signals the RL trainer that the agent has reached singularity
+default_reward_extra_step = -0.2  # minus for extra step
+
+############Environment############
+default_sing_threshold = 0.05  # Singularity threshold. Threshold decreases -> LOS cone angle increase, control decreases
+default_ang_threshold = 0.2  # Sets the precision of the destination [deg]
+default_tetadotv0 = [100, 200, 400]  # Sets the size of a single operator step (deg/sec)
+default_yaw_speed = 5000  # (deg/sec)
+default_action_noise_sigma = 0.0  # sigma for noise normal distribution
+
+############Resetting Angles top platform euler angles Boundings############
+# Maximum and minimum values that will shuffle while Resetting the source vector
+default_init_look_v_min = 0  # [deg].
+default_init_look_v_max = 55  # [deg].
+
+# Maximum and minimum values that will shuffle while Resetting the destination vectors
+default_goal_look_v_min = 0  # [deg].
+default_goal_look_v_max = 55  # [deg].
+
+Success percentage: 99.06 %
+Average steps to success: 35.80092873006259
+Std. of steps to success 32.34033358834849
+Maximum steps to success: 393
+Number of |success: 9906 | Out of steps: 87 | Singularity point: 7 |
+Trained Model Mean reward: 50.758151484830066 Num episodes: 10000
+Minimum Sing A: 0.0072380065592092735
+Minimum Sing B: 0.07203306396724546
+Average prediction time: 0.00023926730093883604
+
+############Environment############
+default_ang_threshold = 1.0  # Sets the precision of the destination [deg]
+
+Success percentage: 99.91 %
+Average steps to success: 27.65078570713642
+Std. of steps to success 23.925886867352908
+Maximum steps to success: 316
+Number of |success: 9991 | Out of steps: 3 | Singularity point: 6 |
+Trained Model Mean reward: 52.995253217940416 Num episodes: 10000
+Minimum Sing A: 3.268733536655182e-05
+Minimum Sing B: 0.09189764917881255
+Average prediction time: 0.00022973151740245026

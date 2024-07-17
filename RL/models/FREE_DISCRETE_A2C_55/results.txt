@@ -1,0 +1,65 @@
+default_target_mode = SearchMethod.FREE
+default_actions_type = ActionsSpace.DISCRETE
+default_classic_control = False
+default_classic_control_K = 1
+default_enable_azimuth_control = False  # use only for evaluation
+default_use_grid = True  # if true, grid is used for filtering unreachable sources & destinations
+default_roll_and_pitch_grid_file = 'grids/euler_grid_1.pkl'  # applicable when target_mode != JOINTS_ELEVATION
+default_joints_elevation_grid_file = 'grids/joints_grid_1.pkl'  # applicable when target_mode == JOINTS_ELEVATION
+default_goal_selection_mode = GoalSelectionMethod.BY_PROXIMITY  # applicable for JOINTS_ELEVATION and ROLL_AND_PITCH target modes
+
+
+############Maximum operator steps limit###################
+default_max_steps = 400  # actions operator steps limit
+
+############Rewards##################
+default_reward_step_dist_factor = 30  # Multiplies the angular difference from target, resulting a positive reward when the difference is decreased
+default_reward_step_singA = 10  # Multiplies the difference in singA, resulting a positive reward when the singA is increased
+default_reward_success = 50  # Signals the RL trainer that the agent has reached the target vector within the 'ang_threshold'
+default_reward_singularity = -70  # Signals the RL trainer that the agent has reached singularity
+default_reward_extra_step = -0.2  # minus for extra step
+
+############Environment############
+default_sing_threshold = 0.05  # Singularity threshold. Threshold decreases -> LOS cone angle increase, control decreases
+default_ang_threshold = 0.2  # Sets the precision of the destination [deg]
+default_tetadotv0 = [100, 200, 400]  # Sets the size of a single operator step (deg/sec)
+default_yaw_speed = 5000  # (deg/sec)
+default_action_noise_sigma = 0.0  # sigma for noise normal distribution
+
+############Resetting Angles top platform euler angles Boundings############
+# Maximum and minimum values that will shuffle while Resetting the source vector
+default_init_look_v_min = 0  # [deg].
+default_init_look_v_max = 55  # [deg].
+
+# Maximum and minimum values that will shuffle while Resetting the destination vectors
+default_goal_look_v_min = 0  # [deg].
+default_goal_look_v_max = 55  # [deg].
+
+Success percentage: 98.18 %
+Average steps to success: 40.66765125280098
+Std. of steps to success 35.129018302151216
+Maximum steps to success: 215
+Number of |success: 9818 | Out of steps: 0 | Singularity point: 182 |
+Trained Model Mean reward: 48.503278239698204 Num episodes: 10000
+Minimum Sing A: 0.0005425783950278849
+Minimum Sing B: 0.062339368929803574
+Average prediction time: 0.0002396504202615004
+
+############Resetting Angles top platform euler angles Boundings############
+# Maximum and minimum values that will shuffle while Resetting the source vector
+default_init_look_v_min = 0  # [deg].
+default_init_look_v_max = 50  # [deg].
+
+# Maximum and minimum values that will shuffle while Resetting the destination vectors
+default_goal_look_v_min = 0  # [deg].
+default_goal_look_v_max = 50  # [deg].
+
+Success percentage: 99.96000000000001 %
+Average steps to success: 34.02410964385754
+Std. of steps to success 29.10725015803258
+Maximum steps to success: 173
+Number of |success: 9996 | Out of steps: 0 | Singularity point: 4 |
+Trained Model Mean reward: 51.35384664263043 Num episodes: 10000
+Minimum Sing A: 0.0444466461266487
+Minimum Sing B: 0.33634725589629905
+Average prediction time: 0.00019476287029133833

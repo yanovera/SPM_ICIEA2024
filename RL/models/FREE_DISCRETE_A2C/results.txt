@@ -1,0 +1,38 @@
+default_target_mode = SearchMethod.FREE
+default_actions_type = ActionsSpace.DISCRETE
+
+############Maximum operator steps limit###################
+default_max_steps = 400  # actions operator steps limit
+
+############Rewards##################
+default_reward_step_factor = 30  # Multiplies the difference in angle to the target vector, resulting a positive reward when the difference is decreased
+default_reward_step_singA = 10  # Multiplies the difference in singA, resulting a positive reward when the singA is increased
+default_reward_success = 50  # Signals the RL trainer that the agent has reached the target vector within the 'ang_threshold'
+default_reward_singularity = -70  # Signals the RL trainer that the agent has reached singularity
+default_reward_extra_step = -0.2  # minus for extra step
+
+############Environment############
+default_sing_threshold = 0.05  # Singularity threshold. Threshold decreases -> LOS cone angle increase, control decreases
+default_ang_threshold = 0.2  # Sets the precision of the destination [deg]
+default_tetadotv0 = [100, 200, 400]  # Sets the size of a single operator step (deg/sec)
+default_rolling_speed = 800  # (deg/sec)
+default_action_noise_sigma = 0.0  # sigma for noise normal distribution
+
+############Resetting Angles top platform euler angles Boundings############
+# Maximum and minimum values that will shuffle while Resetting the source vector
+default_init_look_v_min = 0  # [deg].
+default_init_look_v_max = 40  # [deg].
+
+# Maximum and minimum values that will shuffle while Resetting the destination vectors
+default_goal_look_v_min = 0  # [deg].
+default_goal_look_v_max = 40  # [deg].
+
+Success percentage: 100.0 %
+Average steps to success: 20.5703
+Std. of steps to success 15.619489681484476
+Maximum steps to success: 179
+Number of |success: 10000 | Out of steps: 0 | Singularity point: 0 |
+Trained Model Mean reward: 54.607591652067136 Num episodes: 10000
+Minimum Sing A: 0.050438548260269285
+Minimum Sing B: 0.42867795282760335
+Average prediction time: 0.00019212832824967477
