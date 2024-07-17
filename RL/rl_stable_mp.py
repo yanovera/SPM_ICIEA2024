@@ -12,7 +12,7 @@ from stable_baselines3.common.vec_env import DummyVecEnv, SubprocVecEnv
 from environment import SPM_Env_ver4 as SPM_Env
 
 # Model Prefix
-PREFIX = "TEST_DISCRETE_A2C_55"
+PREFIX = "DISCRETE_A2C_55"
 
 #  Trained model, directory and file
 ALG = A2C
