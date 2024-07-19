@@ -298,26 +298,26 @@ def main():
 
     a2c_df = info_df[info_df["Algorithm"] == "A2C"]
     td3_df = info_df[info_df["Algorithm"] == "TD3"]
-    cc_df = info_df[info_df["Algorithm"] == "Feedback Control"]
+    cc_df = info_df[info_df["Algorithm"] == "UF"]
 
     success_rates = {"A2C": a2c_df[a2c_df["End"] == 'Success'].count()["Algorithm"]/ITERATIONS*100,
                      "TD3": td3_df[td3_df["End"] == 'Success'].count()["Algorithm"]/ITERATIONS*100,
-                     "Feedback Control": cc_df[cc_df["End"] == 'Success'].count()["Algorithm"]/ITERATIONS*100,
+                     "UF": cc_df[cc_df["End"] == 'Success'].count()["Algorithm"]/ITERATIONS*100,
                      }
 
     traj_length_mean = {"A2C": a2c_df["Traj. length"].mean(),
                         "TD3": td3_df["Traj. length"].mean(),
-                        "Feedback Control": cc_df["Traj. length"].mean(),
+                        "UF": cc_df["Traj. length"].mean(),
                         }
 
     traj_length_std = {"A2C": a2c_df["Traj. length"].std(),
                        "TD3": td3_df["Traj. length"].std(),
-                       "Feedback Control": cc_df["Traj. length"].std(),
+                       "UF": cc_df["Traj. length"].std(),
                        }
 
     traj_singA_mean = {"A2C": a2c_df["singA_avg"].mean(),
                         "TD3": td3_df["singA_avg"].mean(),
-                        "Feedback Control": cc_df["singA_avg"].mean(),
+                        "UF": cc_df["singA_avg"].mean(),
                         }
 
     print("Success rates[%]: ", success_rates)
