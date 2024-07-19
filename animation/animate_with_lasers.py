@@ -1,4 +1,3 @@
-# Run in blender after loading the animation model
 """
 This script animates a Blender model of a Spherical Parallel Manipulator (SPM) using data from a single evaluation log file. It reads the log file, extracts the necessary angles, and applies these to the Blender model to create an animation.
 
