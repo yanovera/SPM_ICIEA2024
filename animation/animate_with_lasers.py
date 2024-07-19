@@ -1,4 +1,36 @@
 # Run in blender after loading the animation model
+"""
+This script animates a Blender model of a Spherical Parallel Manipulator (SPM) using data from a single evaluation log file. It reads the log file, extracts the necessary angles, and applies these to the Blender model to create an animation.
+
+Script Overview:
+1. Imports and Setup:
+   - Imports necessary libraries like math, bpy, csv, and numpy.
+   - Defines file paths, initial angles, and animation settings.
+
+2. Classes:
+   - Arm: Manages the rotation and keyframe insertion for the manipulator's arms.
+   - Platform: Manages the orientation and keyframe insertion for the platform.
+   - LaserObject: Manages the visibility of laser objects in the scene.
+
+3. Functions:
+   - view3d_fullscreen: Toggles fullscreen mode in Blender's 3D view.
+   - stop_playback: Stops the animation playback at the end of the scene.
+   - read_angles: Reads angles from the log file and stores them in lists.
+   - get_target_position: Computes the target position using rotation matrices.
+   - rotate_system: Applies the read angles to the Blender model and inserts keyframes.
+
+4. Main Function:
+   - Initializes the arms and platform.
+   - Reads the log file and extracts angles.
+   - Applies the angles to the Blender model and creates keyframes.
+   - Optionally plays and saves the animation.
+
+How to Use:
+1. Load the Blender model and run this script in Blender.
+2. Ensure the log file path and name are correctly set in the script.
+3. Set the desired animation settings (e.g., playAnimation, saveAnimation).
+4. Run the script to generate the animation.
+"""
 
 import math
 import bpy

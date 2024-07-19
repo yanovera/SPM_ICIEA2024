@@ -1,3 +1,38 @@
+"""
+This script trains a reinforcement learning (RL) model using the SPMEnv environment, which simulates a Spherical Parallel Manipulator (SPM).
+
+Script Overview:
+1. Imports and Setup:
+   - Imports necessary libraries like gym, numpy, and stable_baselines3.
+   - Defines constants and parameters for the model and training process.
+
+2. Environment and Wrapper:
+   - CustomWrapper: A wrapper for the SPMEnv environment to manage state, rewards, and steps.
+   - make_env: A function to create multiple instances of the environment for parallel processing.
+
+3. Training and Evaluation:
+   - evaluate: A function to evaluate the trained model over a specified number of episodes.
+   - main: The main function that sets up the environment, loads or initializes the model, and starts the training process.
+
+Parameters Explained:
+- PREFIX: Prefix for the model name.
+- ALG: Algorithm used for training (e.g., A2C).
+- N_PROC: Number of processes for parallel environment instances.
+- MODEL_DIR: Directory to save the trained model.
+- NET_ARCH_A2C: Network architecture for the A2C algorithm.
+- NET_ARCH_TD3: Network architecture for the TD3 algorithm.
+- LEARNING_RATE_A2C: Learning rate for the A2C algorithm.
+- LEARNING_RATE_TD3: Learning rate for the TD3 algorithm.
+- GAMMA: Discount factor for future rewards.
+- LEARNING_STEPS: Total number of training steps.
+- EVAL_FREQ: Frequency of evaluation during training.
+- N_EVAL_EPISODES: Number of episodes for each evaluation.
+- EVALUATION_EPISODES: Total number of episodes for final evaluation.
+- DETERMINISTIC_EVALUATION: Whether to use deterministic actions during evaluation.
+- SEED: Random seed for reproducibility.
+- DEVICE: Device to run the model on (e.g., cuda for GPU).
+"""
+
 import math
 import os
 import time

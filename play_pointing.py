@@ -1,3 +1,45 @@
+"""
+This script evaluates trained reinforcement learning (RL) models against a classic control method for a Spherical Parallel Manipulator (SPM) and visualizes the results.
+
+Script Overview:
+1. Imports and Setup:
+   - Imports necessary libraries like gym, numpy, pandas, matplotlib, plotly, and stable_baselines3.
+   - Defines constants and parameters for evaluation and visualization.
+
+2. Environment and Models:
+   - Initializes the SPM environment and loads trained RL models (A2C and TD3).
+   - Defines classic control parameters and initializes the classic control method.
+
+3. Evaluation and Visualization:
+   - Solver class: Encapsulates the solving method for each algorithm.
+   - main: The main function that evaluates each algorithm, collects results, and visualizes trajectories and performance metrics.
+
+Parameters Explained:
+- PERFORM_A2C: Whether to evaluate the A2C model.
+- PERFORM_TD3: Whether to evaluate the TD3 model.
+- PERFORM_CLASSIC: Whether to evaluate the classic control method.
+- START_STATE: Initial state of the SPM.
+- GOAL_LOOKV: Goal look vector for the SPM.
+- PLOT_EULER_2D: Whether to plot 2D Euler angles.
+- SHOW_SINGULARITY_MAP: Whether to show the singularity map.
+- PLOT_EULER_3D: Whether to plot 3D Euler angles.
+- PLOT_THETAS: Whether to plot joint angles.
+- ITERATIONS: Number of evaluation iterations.
+- SEED: Random seed for reproducibility.
+- ACTION_NOISE_SIGMA: Standard deviation of action noise.
+- MEASUREMENT_NOISE_SIGMA: Standard deviation of measurement noise.
+- DEVICE: Device to run the models on (e.g., cpu or cuda).
+- RL_MODELS_PATH: Path to the directory containing trained RL models.
+- LOG_PATH: Path to the directory for saving logs.
+- SINGULARITY_MAP_FILE: Path to the singularity map file.
+- A2C_MODEL_NAME: Name of the A2C model.
+- A2C_MODEL_PARAMS: Parameters for the A2C model.
+- TD3_MODEL_NAME: Name of the TD3 model.
+- TD3_MODEL_PARAMS: Parameters for the TD3 model.
+- CLASSIC_PARAMS: Parameters for the classic control method.
+"""
+
+
 import io
 import math
 import pickle
