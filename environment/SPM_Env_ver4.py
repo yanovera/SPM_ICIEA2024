@@ -346,10 +346,3 @@ class SpmEnv(gym.Env):
             self.goal_distance = self.los_distance
         else:
             self.goal_distance = self.elevation_distance
-
-    def get_joints_pos(self, phi, theta, psi=0) -> np.array:
-        Qm = Q321(phi, theta, psi)
-        tetavIK, _, SingFlag = SPMIK(Qm, self.vast, self.geopara)
-        return tetavIK
-
-
