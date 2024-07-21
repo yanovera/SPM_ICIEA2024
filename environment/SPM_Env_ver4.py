@@ -11,7 +11,6 @@ from RL.parameters_ver4 import Parameters
 from RL.enums import ActionsSpace
 
 from typing import Optional
-from utils.grid_utils import project_point_to_2D
 from environment.env_utils import *
 from environment.GridMap import GridMap
 
@@ -49,16 +48,13 @@ class SpmEnv(gym.Env):
         self.homing = np.array([0, 0, 1])  # homing vector
         self.lookv_goal = np.array([0, 0, 1])  # look vector destination
         self.elevation_goal = 0
-        self.joints_2d_goal = np.zeros(2)
         self.lookv = np.array([0, 0, 1])  # vector normal to platform
         self.los_distance = 0
         self.elevation_distance = 0
         self.azimuth_distance = 0
         self.roll_and_pitch_distance = 0
-        self.joints_2d_distance = 0
         self.goal_distance = 0
         self.elevation = 0
-        self.joints_2d_pos = np.zeros(2)
 
         # Platform Destination
 
@@ -286,9 +282,6 @@ class SpmEnv(gym.Env):
         if self.par.enable_azimuth_control:
             self.azimuth_distance = azimuth_angle(source=self.lookv, target=self.lookv_goal)
         tetavIK, _, _ = SPMIK(self.Qm, self.vast, self.geopara)
-        self.joints_2d_pos = np.array(project_point_to_2D(tetavIK))
-        joints_2d_delta = self.joints_2d_goal - self.joints_2d_pos
-        self.joints_2d_distance = np.linalg.norm(wrap_angle(joints_2d_delta))
         measured_position = np.array([self.phis, self.tetas, self.psis]) + np.array([self.rng.gauss(mu=0, sigma=self.par.measurement_noise_sigma) for _ in range(3)])
         self.state = np.concatenate((measured_position, [self.elevation_goal]))
         self.set_goal_distance()
