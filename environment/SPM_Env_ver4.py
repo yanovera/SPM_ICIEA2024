@@ -17,55 +17,6 @@ from environment.GridMap import GridMap
 
 
 class SpmEnv(gym.Env):
-    """
-    Description:
-        The Spherical Parallel Manipulator mechanism contains three identical kinematic
-        chains of two arms. The three kinematic chains share a stationary common base,
-        at the base each chain is connected to an operator. On the other side, every chain
-        is an active rotate joint connected to a moving platform. The rotational movement of
-        the arms is limited by rotate joint connected to hinges at both sides of the arms.
-        The SPM is a mechanism based on parallel kinematics in which all three rotation axes
-        intersect at one point. This point, the center of rotation, is fixed and the upper
-        platform moves around it. Each rotation axis adds a degree of freedom. The overall
-        mechanism consists three kinematic chains, characterized by 3 degrees of freedom.
-
-    Observation:
-        Platfom Euler Angles Phi Theta Psi (in radians)
-        Type: Box(3)
-        Num   Action
-        0     Phi [-pi, pi]
-        1     Teta [-pi/2, pi/2]
-        2     Psi [-pi, pi]
-
-    Actions:
-        Type: Discrete(26)
-        All possible combinations.
-        Each operator can:
-            Rotate in positive direction (1 in matrix self.OperAction)
-            Rotate in negative direction (-1 in matrix self.OperAction)
-            Stay static (do nothing) (0 in matrix self.OperAction)
-
-        Note: [0, 0, 0] scenario is omitted in this stage
-
-    Reward:
-        - 1 for every step taken
-        + 10 for goal achievement
-        - 10 for singularity under threshold
-        + (singularity A value) / 2
-        + (singularity B value) / 2
-
-    Starting State:
-        A random state will be assigned in each episode. This state will be defined by 2 euler angles: psi and theta.
-        These two angles, fully defines the LOS cone, by rotating 180 [deg] in roll (psi), and maximum of 60 [deg]
-        in elavation (theta)
-        In homing state (meaning euler angles are [0,0,0]), the platform if perfectly horizontal, and
-        is defined at the documentary.
-
-    Episode Termination:
-        a Platform angle reaches the goal angle (within the threshold defined)
-        b Singularity parameters (S2s and S1v) is equal or less than singularity threshold defined)
-    """
-
     def __init__(self, parameters: Optional[Parameters] = None, seed=None):
         if parameters is None:
             self.par = Parameters()
